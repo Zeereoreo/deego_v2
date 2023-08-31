@@ -1,7 +1,13 @@
+import 'package:deego_v2/homeimage.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    const MaterialApp(
+      home: MyApp(),
+    )
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -9,6 +15,22 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    //시스템 가로모드
+    SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft, DeviceOrientation.landscapeRight]);
+
+    return Scaffold(
+      appBar: AppBar(
+          centerTitle: false,
+          title:Text('deego')
+      ),
+      body: Container(
+        child: Column(
+          children: [
+            ImageWidgetApp(),
+            ElevatedButton(onPressed: (){}, child: Text('시작하기'))
+          ],
+        ),
+      ),
+    );
   }
 }
