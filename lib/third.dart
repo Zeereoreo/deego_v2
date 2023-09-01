@@ -1,7 +1,5 @@
 import 'package:deego_v2/fourth.dart';
-import 'package:deego_v2/main.dart';
 import 'package:deego_v2/second.dart';
-import 'package:deego_v2/third.dart';
 import 'package:flutter/material.dart';
 
 
@@ -18,6 +16,7 @@ class Third extends StatelessWidget {
             height: 300,
             child: Stack(
               children: [
+                Text('세번쨰 페이지')
                 // sliderWidget(),
                 // sliderIndicator(),
               ],

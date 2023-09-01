@@ -16,6 +16,7 @@ class Fourth extends StatelessWidget {
             height: 300,
             child: Stack(
               children: [
+                Text('네번쨰 페이지')
                 // sliderWidget(),
                 // sliderIndicator(),
               ],
