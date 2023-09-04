@@ -38,7 +38,9 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('deego'),
+        backgroundColor: Colors.transparent,
+        elevation: 0.0,
+        title: Image.asset('images/deegologo.png', fit: BoxFit.cover),
       ),
       body: Column(
         children: [

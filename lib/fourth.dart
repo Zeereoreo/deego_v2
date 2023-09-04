@@ -19,7 +19,6 @@ class Fourth extends StatelessWidget {
               children: [
                 Text('결과 인지 화면\n 몇 포인트 충전가능합니다\n 충전하시겠습니까?'),
                 Container(
-
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
