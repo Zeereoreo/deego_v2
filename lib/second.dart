@@ -5,6 +5,7 @@ import 'package:deego_v2/third.dart';
 import 'package:flutter/material.dart';
 
 
+
 class Second extends StatefulWidget {
   const Second({super.key});
 
@@ -30,13 +31,35 @@ class _SecondState extends State<Second> {
         children: [
           SizedBox(
             height: 300,
-            child: Stack(
+            child: Column(
               children: [
                 Text('두번째 페이지'),
-                ImageSliderWidget(
-                  controller: _controller,
-                  imageList: imageList,
-                  currentIndex: _current,
+                Container(
+
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(border: Border.all(color: Colors.black)),
+                        width: 150,
+                        height: 200,
+                        child: Text('Step 1 \n 포켓에 맞춰 넣어주세요'),
+                      ),
+
+                      Container(
+                        decoration: BoxDecoration(border: Border.all(color: Colors.black)),
+                        width: 150,
+                        height: 200,
+                        child: Text('Step 2 \n 들어가면 안되는 것들'),
+                      ),
+                      Container(
+                        decoration: BoxDecoration(border: Border.all(color: Colors.black)),
+                        width: 150,
+                        height: 200,
+                        child: Text('Step 3 \n 투입 완료 버튼을 눌러주세요'),
+                      )
+                    ],
+                  ),
                 )
               ],
             ),

@@ -1,3 +1,4 @@
+import 'package:deego_v2/fifth.dart';
 import 'package:deego_v2/main.dart';
 import 'package:deego_v2/third.dart';
 import 'package:flutter/material.dart';
@@ -14,9 +15,25 @@ class Fourth extends StatelessWidget {
         children: [
           SizedBox(
             height: 300,
-            child: Stack(
+            child: Column(
               children: [
-                Text('네번쨰 페이지')
+                Text('결과 인지 화면\n 몇 포인트 충전가능합니다\n 충전하시겠습니까?'),
+                Container(
+
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Expanded(
+                        child: Container(
+                          height: 200,
+                          decoration: BoxDecoration(border: Border.all(color: Colors.black)),
+                          child: Text('결과에 따른 이미지'),
+                        ),
+                      ),
+                    ],
+                  ),
+                )
+                // Text('몇 포인트 충전가능합니다\n 충전하시겠습니까?')
                 // sliderWidget(),
                 // sliderIndicator(),
               ],
@@ -25,10 +42,12 @@ class Fourth extends StatelessWidget {
           Container(
             padding: const EdgeInsets.all(20),
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+
               children: [
                 ElevatedButton(onPressed: (){
-                  // Navigator.push(context,
-                  //     MaterialPageRoute(builder: (c) => Fourth();));
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (c) => Fifth()));
                 }, child: Text('다음으로')),
                 ElevatedButton(onPressed: (){
                   Navigator.push(context,
