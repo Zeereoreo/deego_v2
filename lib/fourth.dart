@@ -10,7 +10,7 @@ class Fourth extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: MyAppBar(),
       body: Column(
         children: [
           SizedBox(

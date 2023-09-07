@@ -2,6 +2,7 @@ import 'package:deego_v2/fourth.dart';
 import 'package:deego_v2/second.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:deego_v2/main.dart';
 
 
 
@@ -11,7 +12,7 @@ class Third extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: MyAppBar(),
       body: Column(
         children: [
           SizedBox(

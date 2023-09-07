@@ -26,12 +26,11 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int _current = 0;
   final CarouselController _controller = CarouselController();
+
   List<String> imageList = [
-    "https://cdn.pixabay.com/photo/2014/04/14/20/11/pink-324175_1280.jpg",
-    "https://cdn.pixabay.com/photo/2014/02/27/16/10/flowers-276014_1280.jpg",
-    "https://cdn.pixabay.com/photo/2012/03/01/00/55/flowers-19830_1280.jpg",
-    "https://cdn.pixabay.com/photo/2015/06/19/20/13/sunset-815270_1280.jpg",
-    "https://cdn.pixabay.com/photo/2016/01/08/05/24/sunflower-1127174_1280.jpg",
+    'assets/images/Group5.png',
+    'assets/images/Group6.png',
+    'assets/images/Group4.png',
   ];
 
   @override
@@ -60,7 +59,7 @@ class _HomePageState extends State<HomePage> {
             padding: const EdgeInsets.all(20),
             child: ElevatedButton(
               onPressed: (){
-                Navigator.push(context, 
+                Navigator.push(context,
                 MaterialPageRoute(builder: (c) => Second()));
               }, child: Text('시작하기'),
             )
@@ -70,3 +69,18 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
+
+class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
+  @override
+  Widget build(BuildContext context) {
+    return AppBar(
+      backgroundColor: Colors.transparent,
+      elevation: 0.0,
+      title: Image.asset('images/deegologo.png', fit: BoxFit.cover),
+    );
+  }
+
+  @override
+  Size get preferredSize => Size.fromHeight(kToolbarHeight);
+}
+
