@@ -13,38 +13,31 @@ class Third extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: MyAppBar(),
-      body: Column(
-        children: [
+      body:
           SizedBox(
-            height: 300,
+            height: MediaQuery.of(context).size.height,
             child: Stack(
               children: [
-                Text('로딩 화면'),
                 MyLoadingScreen(),
-                // sliderWidget(),
-                // sliderIndicator(),
+                Align(
+                  alignment: Alignment.bottomCenter,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      ElevatedButton(onPressed: (){
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (c) => Fourth()));
+                      }, child: Text('다음으로')),
+                      ElevatedButton(onPressed: (){
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (c) => Second()));
+                      }, child: Text('이전으로')),
+                    ],
+                  ),
+                )
               ],
             ),
           ),
-          Container(
-            padding: const EdgeInsets.all(20),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-
-              children: [
-                ElevatedButton(onPressed: (){
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (c) => Fourth()));
-                }, child: Text('다음으로')),
-                ElevatedButton(onPressed: (){
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (c) => Second()));
-                }, child: Text('이전으로')),
-              ],
-            ),
-          )
-        ],
-      ),
     );
   }
 }
@@ -53,14 +46,13 @@ class MyLoadingScreen extends StatelessWidget {
 @override
 Widget build(BuildContext context) {
 return Scaffold(
-body: Center(
-//로딩바 구현 부분
-child: SpinKitWave(
-color: Color(0xFF49BCF8), // 색상 설정
-size: 50.0, // 크기 설정
-duration: Duration(seconds: 2), //속도 설정
-),
-),
-);
+          body: Center(
+                    child: SpinKitWave(
+                    color: Color(0xFF49BCF8), // 색상 설정
+                    size: 50.0, // 크기 설정
+                    duration: Duration(seconds: 2), //속도 설정
+                  ),
+              ),
+           );
 }
 }

@@ -24,14 +24,14 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int _current = 0;
-  final CarouselController _controller = CarouselController();
-
-  List<String> imageList = [
-    'assets/images/Group5.png',
-    'assets/images/Group6.png',
-    'assets/images/Group4.png',
-  ];
+  // int _current = 0;
+  // final CarouselController _controller = CarouselController();
+  //
+  // List<String> imageList = [
+  //   'assets/images/Group5.png',
+  //   'assets/images/Group6.png',
+  //   'assets/images/Group4.png',
+  // ];
 
   @override
   Widget build(BuildContext context) {
@@ -41,19 +41,34 @@ class _HomePageState extends State<HomePage> {
         elevation: 0.0,
         title: Image.asset('assets/images/deegologo.png', fit: BoxFit.cover),
       ),
-      body: Column(
-        children: [
-          SizedBox(
-            // height: 300,
-            child: Stack(
-              children: [
-                Image.asset('assets/images/deegoback.jpg')
-
-              ],
-            ),
-          ),
-        ],
+      body: Stack(
+      children: [
+      Container(
+        decoration: BoxDecoration(
+          image:  DecorationImage(
+            fit: BoxFit.cover,
+            image: AssetImage('assets/images/deegoback.jpg')
+          )
+        ),
       ),
+      Align(
+        alignment: Alignment.bottomCenter,
+        child: ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Color(0xFF49BCF8),
+              minimumSize: Size(150, 150),
+              shape: CircleBorder(side: BorderSide()),
+              // elevation:
+            ),
+            onPressed: (){
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (c) => Second()));
+            },
+            child: Text('다음으로'),
+        ),
+      )
+    ],
+    )
     );
   }
 }
