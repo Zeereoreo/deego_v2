@@ -39,30 +39,18 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0.0,
-        title: Image.asset('images/deegologo.png', fit: BoxFit.cover),
+        title: Image.asset('assets/images/deegologo.png', fit: BoxFit.cover),
       ),
       body: Column(
         children: [
           SizedBox(
-            height: 300,
+            // height: 300,
             child: Stack(
               children: [
-                ImageSliderWidget(
-                  controller: _controller,
-                  imageList: imageList,
-                  currentIndex: _current,
-                ),
+                Image.asset('assets/images/deegoback.jpg')
+
               ],
             ),
-          ),
-          Container(
-            padding: const EdgeInsets.all(20),
-            child: ElevatedButton(
-              onPressed: (){
-                Navigator.push(context,
-                MaterialPageRoute(builder: (c) => Second()));
-              }, child: Text('시작하기'),
-            )
           ),
         ],
       ),
@@ -76,7 +64,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       backgroundColor: Colors.transparent,
       elevation: 0.0,
-      title: Image.asset('images/deegologo.png', fit: BoxFit.cover),
+      title: Image.asset('assets/images/deegologo.png', fit: BoxFit.cover),
     );
   }
 

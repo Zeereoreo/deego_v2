@@ -16,13 +16,7 @@ class Second extends StatefulWidget {
 class _SecondState extends State<Second> {
   int _current = 0;
   final CarouselController _controller = CarouselController();
-  List<String> imageList = [
-    "https://cdn.pixabay.com/photo/2014/04/14/20/11/pink-324175_1280.jpg",
-    "https://cdn.pixabay.com/photo/2014/02/27/16/10/flowers-276014_1280.jpg",
-    "https://cdn.pixabay.com/photo/2012/03/01/00/55/flowers-19830_1280.jpg",
-    "https://cdn.pixabay.com/photo/2015/06/19/20/13/sunset-815270_1280.jpg",
-    "https://cdn.pixabay.com/photo/2016/01/08/05/24/sunflower-1127174_1280.jpg",
-  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,29 +27,48 @@ class _SecondState extends State<Second> {
             height: 300,
             child: Column(
               children: [
-                Text('두번째 페이지'),
-                Container(
-
+                Expanded(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       Container(
-                        decoration: BoxDecoration(border: Border.all(color: Colors.black)),
+                        decoration: BoxDecoration(
+                            border: Border.all(
+                                color: Color(0xFF49BCF8),
+                                width: 5,
+                            ),
+                            borderRadius: BorderRadius.circular(70),
+                        ),
                         width: 150,
-                        height: 200,
+                        height: 250,
+                        alignment: Alignment.center,
                         child: Text('Step 1 \n 포켓에 맞춰 넣어주세요'),
                       ),
 
                       Container(
-                        decoration: BoxDecoration(border: Border.all(color: Colors.black)),
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            color: Color(0xFF49BCF8),
+                            width: 5,
+                          ),
+                          borderRadius: BorderRadius.circular(70),
+                        ),
                         width: 150,
-                        height: 200,
+                        height: 250,
+                        alignment: Alignment.center,
                         child: Text('Step 2 \n 들어가면 안되는 것들'),
                       ),
                       Container(
-                        decoration: BoxDecoration(border: Border.all(color: Colors.black)),
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            color: Color(0xFF49BCF8),
+                            width: 5,
+                          ),
+                          borderRadius: BorderRadius.circular(70),
+                        ),
                         width: 150,
-                        height: 200,
+                        height: 250,
+                        alignment: Alignment.center,
                         child: Text('Step 3 \n 투입 완료 버튼을 눌러주세요'),
                       )
                     ],

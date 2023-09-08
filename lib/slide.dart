@@ -41,7 +41,7 @@ class ImageSliderWidget extends StatelessWidget {
                 width: MediaQuery.of(context).size.width,
                 child: Image(
                   fit: BoxFit.fill,
-                  image: NetworkImage(
+                  image: AssetImage(
                     imgLink,
                   ),
                 ),
