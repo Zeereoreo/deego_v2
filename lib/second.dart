@@ -22,82 +22,70 @@ class _SecondState extends State<Second> {
     return Scaffold(
       appBar: MyAppBar(),
       body: Stack(
+        alignment: Alignment.center,
         children: [
           Container(
             decoration: BoxDecoration(
-                image:  DecorationImage(
-                    fit: BoxFit.cover,
-                    image: AssetImage('assets/images/new.jpg'),
-                )
+                color: Color(0xFF49BCF8).withAlpha(70)
             ),
           ),
-          SizedBox(
-            height: MediaQuery.of(context).size.height,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
+          Container(
+            margin: EdgeInsets.all(30),
+            alignment: Alignment.center,
+            height: MediaQuery.of(context).size.height/1.5,
+            decoration: BoxDecoration(
+              border: Border.all(
+                width: 5,
+                color: Color(0xFF49BCF8),
+              ),
+              borderRadius: BorderRadius.circular(20)
+            ),
+            child: Row(
               children: [
-                Expanded(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Container(
-                        decoration: BoxDecoration(
-                            border: Border.all(
-                                color: Color(0xFF49BCF8),
-                                width: 5,
-                            ),
-                            borderRadius: BorderRadius.circular(120),
-                          color: Colors.white,
-                        ),
-                        width: MediaQuery.of(context).size.width/4,
-                        height: MediaQuery.of(context).size.width/3,
-                        alignment: Alignment.center,
-                        child: Text('Step 1 \n 포켓에 맞춰 넣어주세요',
-                          style: TextStyle(
-                            fontSize: 30,
-                          ),
+                Flexible(
+                  flex: 1,
+                  child: Container(
+                    width: MediaQuery.of(context).size.width,
+                    height: MediaQuery.of(context).size.height,
+                    // color: Colors.white,
+                    decoration: BoxDecoration(
+                      border: Border(
+                        right: BorderSide(
+                          color: Color(0xFF49BCF8),
+                          width: 5,
                         ),
                       ),
-
-                      Container(
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                            color: Color(0xFF49BCF8),
-                            width: 5,
-                          ),
-                          borderRadius: BorderRadius.circular(120),
-                          color: Colors.white,
-                        ),
-                        width: MediaQuery.of(context).size.width/4,
-                        height: MediaQuery.of(context).size.width/3,
-                        alignment: Alignment.center,
-                        child: Text('Step 2 \n 들어가면 안되는 것들',
-                          style: TextStyle(
-                              fontSize: 30,
-                          ),
-                        ),
-                      ),
-                      Container(
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                            color: Color(0xFF49BCF8),
-                            width: 5,
-                          ),
-                          borderRadius: BorderRadius.circular(120),
-                          color: Colors.white,
-                        ),
-                        width: MediaQuery.of(context).size.width/4,
-                        height: MediaQuery.of(context).size.width/3,
-                        alignment: Alignment.center,
-                        child: Text('Step 3 \n 투입 완료 버튼을 눌러주세요',
-                          style: TextStyle(
-                              fontSize: 30,
-                          ),
-                        ),
-                      )
-                    ],
+                      color: Colors.white
+                    ),
+                    child: Text('1st step'),
                   ),
-                )
+                ),
+                Flexible(
+                  flex: 1,
+                  child: Container(
+                    width: MediaQuery.of(context).size.width,
+                    height: MediaQuery.of(context).size.height,
+                    decoration: BoxDecoration(
+                        border: Border(
+                          right: BorderSide(
+                            color: Color(0xFF49BCF8),
+                            width: 5,
+                          ),
+                        ),
+                        color: Colors.white
+                    ),
+                    child: Text('2nd step'),
+                  ),
+                ),
+                Flexible(
+                  flex: 1,
+                  child: Container(
+                    width: MediaQuery.of(context).size.width,
+                    height: MediaQuery.of(context).size.height,
+                    color: Colors.white,
+                    child: Text('3rd step'),
+                  ),
+                ),
               ],
             ),
           ),

@@ -11,10 +11,9 @@ class Fourth extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: MyAppBar(),
-      body: Column(
+      body: Stack(
         children: [
-          SizedBox(
-            height: 300,
+          Container(
             child: Column(
               children: [
                 Text('결과 인지 화면\n 몇 포인트 충전가능합니다\n 충전하시겠습니까?'),
@@ -24,7 +23,8 @@ class Fourth extends StatelessWidget {
                     children: [
                       Expanded(
                         child: Container(
-                          height: 200,
+                          height: MediaQuery.of(context).size.height/2,
+                          margin: EdgeInsets.all(20),
                           decoration: BoxDecoration(border: Border.all(color: Colors.black)),
                           child: Text('결과에 따른 이미지'),
                         ),
@@ -39,20 +39,22 @@ class Fourth extends StatelessWidget {
             ),
           ),
           Container(
-            padding: const EdgeInsets.all(20),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+            child: Align(
+              alignment: Alignment.bottomCenter,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
 
-              children: [
-                ElevatedButton(onPressed: (){
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (c) => Fifth()));
-                }, child: Text('다음으로')),
-                ElevatedButton(onPressed: (){
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (c) => Third()));
-                }, child: Text('이전으로')),
-              ],
+                children: [
+                  ElevatedButton(onPressed: (){
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (c) => Fifth()));
+                  }, child: Text('다음으로')),
+                  ElevatedButton(onPressed: (){
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (c) => Third()));
+                  }, child: Text('이전으로')),
+                ],
+              ),
             ),
           )
         ],

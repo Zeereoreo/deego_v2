@@ -35,16 +35,17 @@ class _FifthState extends State<Fifth> {
   }
 
 
-  // 동그란 버튼을 생성하는 함수
   Widget createRoundButton(String label, String value) {
     return SizedBox(
-      width: 50,
-      height: 50,
+      width: MediaQuery.of(context).size.width/6.3,
+      height: MediaQuery.of(context).size.width/12,
       child: RawMaterialButton(
         onPressed: () => updateOutput(value),
         elevation: 3.0,
         fillColor: Color(0xFF49BCF8), // 버튼의 배경색
-        shape: CircleBorder(), // 동그란 형태로 설정
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10.0), // 원하는 모양 설정
+        ),
         child: Text(
           label,
           style: TextStyle(color: Colors.white),
@@ -53,34 +54,39 @@ class _FifthState extends State<Fifth> {
     );
   }
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: MyAppBar(),
-      body: Column(
+      body: Stack(
         children: [
-          SizedBox(
-            height: 500,
+          Container(
+            height: MediaQuery.of(context).size.height,
             child: Column(
               children: [
-                Text('포인트 충전화면'),
                 Container(
+                  padding: EdgeInsets.all(10),
                   alignment: Alignment.center,
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       Container(
+                        width: MediaQuery.of(context).size.width/2.1,
+                        height: MediaQuery.of(context).size.height/1.3,
+                        child: Text('포인트 활용법 이미지'),
+                      ),
+                      Container(
                         decoration: BoxDecoration(
-                            border: Border.all(color: Colors.black),
                             borderRadius: BorderRadius.circular(20.0)
                         ),
-                        width: 200,
-                        height: 400,
+                        width: MediaQuery.of(context).size.width/2.1,
+                        height: MediaQuery.of(context).size.height/1.3,
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Text(
-                                '핸드폰 번호를 \n 입력해주세요!',
+                                '핸드폰 번호를 입력해주세요!',
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 20,
@@ -100,7 +106,6 @@ class _FifthState extends State<Fifth> {
                               ),
                             ),
                             Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
                                 createRoundButton('1', '1'),
                                 createRoundButton('2', '2'),
@@ -108,7 +113,6 @@ class _FifthState extends State<Fifth> {
                               ],
                             ),
                             Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
                                 createRoundButton('4', '4'),
                                 createRoundButton('5', '5'),
@@ -116,7 +120,6 @@ class _FifthState extends State<Fifth> {
                               ],
                             ),
                             Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
                                 createRoundButton('7', '7'),
                                 createRoundButton('8', '8'),
@@ -124,31 +127,25 @@ class _FifthState extends State<Fifth> {
                               ],
                             ),
                             Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
                                 createRoundButton('지우기', 'delete'),
                                 createRoundButton('0', '0'),
-                                createRoundButton('전체\n삭제', 'clear'),
+                                createRoundButton('충전하기', 'clear'),
                               ],
                             ),
-                            ElevatedButton(
-                              style: ButtonStyle(
-                                backgroundColor: MaterialStateProperty.all<Color>(Color(0xFF49BCF8)),
-                              ),
-                              onPressed: () {
-                                Navigator.push(context, MaterialPageRoute(builder: (c) => Sixth()));
-                              },
-                              child: Text('충전하기'),
-                            ),
+                            // ElevatedButton(
+                            //   style: ButtonStyle(
+                            //     backgroundColor: MaterialStateProperty.all<Color>(Color(0xFF49BCF8)),
+                            //   ),
+                            //   onPressed: () {
+                            //     Navigator.push(context, MaterialPageRoute(builder: (c) => Sixth()));
+                            //   },
+                            //   child: Text('충전하기'),
+                            // ),
                           ],
                         ),
                       ),
-                      Container(
-                        decoration: BoxDecoration(border: Border.all(color: Colors.black)),
-                        width: 200,
-                        height: 280,
-                        child: Text('포인트 활용법 이미지'),
-                      )
+
                     ],
                   ),
                 )
@@ -157,17 +154,20 @@ class _FifthState extends State<Fifth> {
           ),
           Container(
             padding: const EdgeInsets.all(20),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
+            child: Align(
+              alignment: Alignment.bottomCenter,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
 
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (c) => MyApp()));
-                  },
-                  child: Text('처음으로'),
-                ),
-              ],
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (c) => MyApp()));
+                    },
+                    child: Text('처음으로'),
+                  ),
+                ],
+              ),
             ),
           )
         ],
