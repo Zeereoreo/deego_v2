@@ -34,11 +34,13 @@ class _SecondState extends State<Second> {
             alignment: Alignment.center,
             height: MediaQuery.of(context).size.height/1.5,
             decoration: BoxDecoration(
-                border: Border.all(
-                  width: 5,
-                  color: Color(0xFF49BCF8),
-                ),
-                borderRadius: BorderRadius.circular(20)
+
+              border: Border.all(
+                width: 5,
+                color: Color(0xFF49BCF8),
+              ),
+              borderRadius: BorderRadius.circular(20)
+
             ),
             child: Row(
               children: [
@@ -49,13 +51,13 @@ class _SecondState extends State<Second> {
                     height: MediaQuery.of(context).size.height,
                     // color: Colors.white,
                     decoration: BoxDecoration(
-                        border: Border(
-                          right: BorderSide(
-                            color: Color(0xFF49BCF8),
-                            width: 5,
-                          ),
+                      border: Border(
+                        right: BorderSide(
+                          color: Color(0xFF49BCF8),
+                          width: 5,
                         ),
-                        color: Colors.white
+                      ),
+                      color: Colors.white
                     ),
                     child: Text('1st step'),
                   ),

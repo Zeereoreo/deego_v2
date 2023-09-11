@@ -157,7 +157,9 @@ class _FifthState extends State<Fifth> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Text(
-                              '핸드폰 번호를 입력해주세요!',
+
+                                '핸드폰 번호를 입력해주세요!',
+
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 20,
