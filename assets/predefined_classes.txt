@@ -1,0 +1,9 @@
+al_can
+filled_pet
+glass
+labeled_pet
+others
+pet
+plastic
+t_glass
+t_plastic

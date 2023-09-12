@@ -4,10 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'dart:io';
 import 'package:http/http.dart' as http;
+import 'package:flutter_vision/flutter_vision.dart';
 
 
 void main() {
   HttpOverrides.global = MyHttpOverrides();
+  FlutterVision vision = FlutterVision();
   runApp(const MyApp());
 }
 class MyHttpOverrides extends HttpOverrides{
@@ -45,6 +47,15 @@ class _HomePageState extends State<HomePage> {
   //   'assets/images/Group6.png',
   //   'assets/images/Group4.png',
   // ];
+  // getData()async{
+  //   var vision;
+  //   await vision.loadYoloModel(
+  //       labels: 'assets/labelss.txt',
+  //       modelPath: 'assets/yolov5n.tflite',
+  //       modelVersion: "yolov8",
+  //       numThreads: 1,
+  //       useGpu: false);
+  // }
 
   @override
   Widget build(BuildContext context) {

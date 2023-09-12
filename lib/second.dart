@@ -1,8 +1,10 @@
 import 'package:carousel_slider/carousel_controller.dart';
+import 'package:deego_v2/camera.dart';
 import 'package:deego_v2/main.dart';
 import 'package:deego_v2/slide.dart';
 import 'package:deego_v2/third.dart';
 import 'package:flutter/material.dart';
+import 'package:camera/camera.dart';
 
 
 
@@ -76,7 +78,7 @@ class _SecondState extends State<Second> {
                         ),
                         color: Colors.white
                     ),
-                    child: Text('2nd step'),
+                    child: CameraScreen(),
                   ),
                 ),
                 Flexible(

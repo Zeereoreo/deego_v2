@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 
 class Fourth extends StatelessWidget {
+
   const Fourth({super.key});
 
   @override
@@ -26,7 +27,7 @@ class Fourth extends StatelessWidget {
                           height: MediaQuery.of(context).size.height/2,
                           margin: EdgeInsets.all(20),
                           decoration: BoxDecoration(border: Border.all(color: Colors.black)),
-                          child: Text('결과에 따른 이미지'),
+                          child: Text('dd')
                         ),
                       ),
                     ],
