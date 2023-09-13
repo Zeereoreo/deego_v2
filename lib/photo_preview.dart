@@ -12,6 +12,7 @@ class PhotoPreview extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print(imagePath);
     return Scaffold(
       appBar: MyAppBar(),
       body: Stack(

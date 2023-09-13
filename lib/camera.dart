@@ -47,29 +47,27 @@ class _CameraScreenState extends State<CameraScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: Column(
-          children: [
-            Expanded(
-              flex: 1,
-              child: _cameraController != null && _isCameraReady
-                  ? CameraPreview(_cameraController!)
-                  : Container(
-                color: Colors.grey,
-              ),
+    return Container(
+      child: Column(
+        children: [
+          Expanded(
+            flex: 1,
+            child: _cameraController != null && _isCameraReady
+                ? CameraPreview(_cameraController!)
+                : Container(
+              color: Colors.grey,
             ),
-            Padding(
-              padding: const EdgeInsets.all(16),
-              child: ElevatedButton(
-                onPressed: _cameraController != null
-                    ? () => _onTakePicture(context)
-                    : null,
-                child: const Text('Take a photo'),
-              ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(16),
+            child: ElevatedButton(
+              onPressed: _cameraController != null
+                  ? () => _onTakePicture(context)
+                  : null,
+              child: const Text('Take a photo'),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
