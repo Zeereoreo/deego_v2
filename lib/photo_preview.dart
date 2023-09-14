@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 class PhotoPreview extends StatelessWidget {
   final String imagePath;
 
+
   const PhotoPreview({required this.imagePath, super.key});
 
   @override

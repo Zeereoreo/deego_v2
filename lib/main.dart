@@ -7,6 +7,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'dart:io';
 import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 // import 'package:flutter_vision/flutter_vision.dart';
 
 class CameraProvider extends ChangeNotifier {
@@ -18,6 +19,7 @@ class CameraProvider extends ChangeNotifier {
 }
 
 void main() async {
+  await dotenv.load(fileName: 'assets/config/.env');
   HttpOverrides.global = MyHttpOverrides();
   // FlutterVision vision = FlutterVision();
   // Ensure that plugin services are initialized so that `availableCameras()`
