@@ -44,25 +44,25 @@ class PhotoPreview extends StatelessWidget {
         ],
       ),
     ),
-    Container(
-    child: Align(
-    alignment: Alignment.bottomCenter,
-    child: Row(
-    mainAxisAlignment: MainAxisAlignment.center,
+      Container(
+            child: Align(
+            alignment: Alignment.bottomCenter,
+            child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
 
-    children: [
-    ElevatedButton(onPressed: (){
-    Navigator.push(context,
-    MaterialPageRoute(builder: (c) => Fifth()));
-    }, child: Text('다음으로')),
-    ElevatedButton(onPressed: (){
-    Navigator.push(context,
-    MaterialPageRoute(builder: (c) => Third()));
-    }, child: Text('이전으로')),
-    ],
-    ),
-    ),
-    )
+            children: [
+            ElevatedButton(onPressed: (){
+            Navigator.push(context,
+            MaterialPageRoute(builder: (c) => Fifth()));
+            }, child: Text('다음으로')),
+            ElevatedButton(onPressed: (){
+            Navigator.push(context,
+            MaterialPageRoute(builder: (c) => Third()));
+            }, child: Text('이전으로')),
+            ],
+            ),
+            ),
+            )
     ],
     ),
     );

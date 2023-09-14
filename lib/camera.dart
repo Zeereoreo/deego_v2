@@ -3,6 +3,7 @@ import 'package:deego_v2/photo_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:aws_s3_upload/aws_s3_upload.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:http/http.dart' as http;
 import 'dart:io';
 
 class CameraScreen extends StatefulWidget {
@@ -63,8 +64,17 @@ class _CameraScreenState extends State<CameraScreen> {
             bucket: "deego-v2-dev", // 업로드할 S3 버킷 이름
             region: "ap-northeast-2",   // AWS 지역 설정
             metadata: {"test": "test"} // 선택 사항
-        ).then((result) {
+        ).then((result) async {
           // 업로드 완료 후 실행할 코드
+          http.Response response = await http.post(Uri.parse('http://ai.deegolabs.com:9999/detect/'),
+            headers: {
+              'Authorization' : 'Bearer mydeego'
+            },
+            body: { "key" : "point/2.jpg" }
+          );
+
+          print(response);
+          print(result);
 
         }).catchError((error) {
           // 업로드 중 오류 발생 시 실행할 코드
