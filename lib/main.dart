@@ -1,11 +1,7 @@
 import 'package:camera/camera.dart';
-import 'package:deego_v2/newcamera.dart';
 import 'package:deego_v2/second.dart';
-import 'package:deego_v2/slide.dart';
 import 'package:flutter/material.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 import 'dart:io';
-import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 // import 'package:flutter_vision/flutter_vision.dart';
@@ -23,14 +19,6 @@ void main() async {
   HttpOverrides.global = MyHttpOverrides();
   // FlutterVision vision = FlutterVision();
   // Ensure that plugin services are initialized so that `availableCameras()`
-// can be called before `runApp()`
-  WidgetsFlutterBinding.ensureInitialized();
-
-// Obtain a list of the available cameras on the device.
-  final cameras = await availableCameras();
-
-// Get a specific camera from the list of available cameras.
-  final firstCamera = cameras.first;
 
 
   runApp(
@@ -80,7 +68,6 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
 
 
-
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -107,8 +94,11 @@ class _HomePageState extends State<HomePage> {
               // elevation:
             ),
             onPressed: (){
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (c) => Second()));
+              Navigator.of(context).push(
+                  MaterialPageRoute(
+                  builder: (context) => Second()
+                  )
+              );
             },
             child: Text('다음으로'),
         ),
@@ -117,6 +107,7 @@ class _HomePageState extends State<HomePage> {
     )
     );
   }
+
 }
 
 class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -132,77 +123,5 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Size get preferredSize => Size.fromHeight(kToolbarHeight);
-}
-
-
-class TakePictureScreen extends StatefulWidget {
-  final CameraDescription camera;
-  const TakePictureScreen({super.key, required this.camera});
-
-  @override
-  State<TakePictureScreen> createState() => _TakePictureScreenState();
-}
-
-class _TakePictureScreenState extends State<TakePictureScreen> {
-  late CameraController _controller;
-  late Future<void> _initializeControllerFuture;
-
-  @override
-  void initState() {
-    super.initState();
-    _controller = CameraController(
-        widget.camera,
-        ResolutionPreset.medium
-    );
-
-    _initializeControllerFuture = _controller.initialize();
-  }
-
-  @override
-  void dispose() {
-    //사용하지 않는 리소스 초기화
-    _controller.dispose();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-
-    return Scaffold(
-        appBar: MyAppBar(),
-        body: FutureBuilder<void>(
-          future: _initializeControllerFuture,
-          builder: (context, snapshot) {
-            if (snapshot.connectionState == ConnectionState.done) {
-              // If the Future is complete, display the preview.
-              return CameraPreview(_controller);
-            } else {
-              // Otherwise, display a loading indicator.
-              return const Center(child: CircularProgressIndicator());
-            }
-          },
-        ),
-        floatingActionButton: FloatingActionButton(
-          // Provide an onPressed callback.
-          onPressed: () async {
-            // Take the Picture in a try / catch block. If anything goes wrong,
-            // catch the error.
-            try {
-              // Ensure that the camera is initialized.
-              await _initializeControllerFuture;
-
-              // Attempt to take a picture and then get the location
-              // where the image file is saved.
-              final image = await _controller.takePicture();
-            } catch (e) {
-              // If an error occurs, log the error to the console.
-              print(e);
-            }
-          },
-          child: const Icon(Icons.camera_alt),
-        )
-
-    );
-  }
 }
 

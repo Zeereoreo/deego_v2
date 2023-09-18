@@ -12,6 +12,7 @@ import 'package:provider/provider.dart';
 
 
 class Second extends StatefulWidget {
+  late CameraDescription firstCamera;
 
   @override
   State<Second> createState() => _SecondState();
@@ -19,13 +20,30 @@ class Second extends StatefulWidget {
 
 
 class _SecondState extends State<Second> {
+@override
+  void initState() {
+    super.initState();
+    _initializeFirstCamera(); // _initializeFirstCamera 메서드를 호출하여 firstCamera를 초기화합니다.
+}
+
+// 첫 번째 카메라를 초기화하는 메서드
+void _initializeFirstCamera() async {
+  final cameras = await availableCameras();
+  if (cameras.isNotEmpty) {
+    // 사용 가능한 카메라 목록이 비어 있지 않다면
+    setState(() {
+      var firstCamera = cameras.first; // 첫 번째 카메라를 firstCamera에 할당합니다.
+    });
+  }
+}
 
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context)  {
     // final CameraDescription? firstCamera = Provider.of<CameraProvider>(context).firstCamera;
+// Obtain a list of the available cameras on the device.
 
-
+    var firstCamera;
     return Scaffold(
       appBar: MyAppBar(),
       body: Stack(
@@ -83,7 +101,7 @@ class _SecondState extends State<Second> {
                         ),
                         color: Colors.white
                     ),
-                    child: CameraScreen(),
+                    child: CameraScreen()
                   ),
                 ),
                 Flexible(
